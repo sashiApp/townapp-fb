@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+       <script src="firebaseInit.js"></script>
+       <script>
+         
+          // Get a reference to the database service
+          function onclickSubmit(){
+              alert("called");
+            //var database = firebase.database();
+ //var userRef = firebase.database().ref('test-townapp');
+ //console.log("val:"+userRef);
+ var ref = firebase.database().ref();
+ ref.on("value", function(snapshot){
+    output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
+    //document.getElementById("name").value=snapshot.val().price;
+});
+//
+          }
+
+        </script>
+         </head>
+    <body>
+        <div id="output"></div>
+        <h1>You can buy below properties</h1>
+        <input type="button" onclick="onclickSubmit()" value="List">
+   <br/>
+       <a href="index.html">Home</a><br/>
+       <a href="Buy">Sell</a><br/>
+       <a href="Buy">Rent</a>
+
+       <br>
+       <hr>
+       <div id="buyPropertiesList">
+         
+        Empty
+        <div id="property">
+            <div id="price"></div>
+            <div id ="location"></div>
+            <div id ="dimensions"></div>
+            <div id ="photo"></div>
+        </div>
+        <div id="property">
+                property
+            </div>
+       </div>
+       <hr>
+    </body>
+</html>
